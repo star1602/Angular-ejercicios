@@ -1,0 +1,47 @@
+<h1>Contact form</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+  
+    <div class="mb-4">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required formControlName="name">
+        <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required']"
+        class="alert alert-danger">Este campo es obligatorio.
+        </div>
+        
+        <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['minlength']"
+        class="alert alert-danger">El nombre debe tener más de
+        {{ contactForm.get('name')?.errors?.['minlength']?.requiredLength}} caracteres.
+        </div>
+  </div>
+
+  <div class="mb-4 form-check">
+    <input type="checkbox" class="form-check-input" id="checkAdult" name="checkAdult" formControlName="checkAdult"
+    required>
+    <label for="checkAdult" class="form-label">¿Eres mayor de edad?</label>
+
+    <div *ngIf="contactForm.get('checkAdult')?.touched && contactForm.get('checkAdult')?.errors?.['required']"
+      class="alert alert-danger">Este campo es obligatorio</div>
+  </div>
+
+  <div class="mb-4">
+    <label for="department" class="form-label">Departamento</label>
+    <select name="department" id="department" class="form-select form-select-sm" formControlName="department">
+      <option selected>Abre el menú</option>
+      <option value="marketing">Marketing</option>
+      <option value="sales">ventas</option>
+      <option value="other">Otros</option>
+    </select>
+  </div>
+  
+  <div class="mb-4">
+    <label for="comment" class="form-label">Comentario</label>
+    <textarea class="form-control" name="comment" id="comment" rows="4" placeholder="Deja un comentario....."
+      formControlName="comment" required></textarea>
+    <div *ngIf="contactForm.get('comment')?.touched && contactForm.get('comment')?.errors?.['required']"
+      class="alert alert-danger">Este campo es obligatorio</div>
+    <div class="d-grid gap-2 col-4 float-end">
+      <button type="submit" class="btn btn-info btn-lg" >Enviar</button>
+    </div>
+  </div>
+
+</form>
