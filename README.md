@@ -1,4 +1,7 @@
-# Forms
+# Forms - S12
+
+<h1>Resultado:</h1>
+<img src="https://github.com/star1602/Angular-ejercicios/blob/main/img%20-%20s12/Resultado%20S12.JPG">
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
 
